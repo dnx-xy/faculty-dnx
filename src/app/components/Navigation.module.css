@@ -1,0 +1,29 @@
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  width: 100%; /* Ensure marquee fits within the container */
+}
+
+.marqueeContent {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  margin: 0 20px;
+  font-size: 0.875rem; 
+}
+
+.separator {
+  margin: 0 10px; 
+  color: #ccc;
+  content: '•'; 
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
