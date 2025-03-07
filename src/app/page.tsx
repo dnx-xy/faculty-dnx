@@ -254,7 +254,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="px-8 pb-8 max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-96">
-                <p className="text-gray-600">Care is at the heart of our organization. We understand that every individual's journey is unique, and we strive to provide support that meets their specific needs. Our caring approach extends to both our community members and the environment.</p>
+                <p className="text-gray-600">Care is at the heart of our organization. We understand that every individual&apos;s journey is unique, and we strive to provide support that meets their specific needs. Our caring approach extends to both our community members and the environment.</p>
               </div>
             </div>
             <div className="value-card group cursor-pointer reveal reveal-slide-up reveal-delay-800">
