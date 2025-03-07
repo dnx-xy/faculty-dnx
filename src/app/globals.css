@@ -373,6 +373,11 @@ a:hover {
   transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
 }
 
+/* Ensure mobile navigation menu is visible */
+.md\:hidden {
+  display: block !important;
+}
+
 @media (max-width: 767px) {
   .first-section {
     grid-template-columns: repeat(2, 1fr);
