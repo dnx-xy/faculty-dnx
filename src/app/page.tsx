@@ -93,7 +93,6 @@ export default function Home() {
       if (!isVisible) return;
   
       let start = 0;
-      const increment = end / (duration / 10);
       const startTime = Date.now();
   
       const timer = setInterval(() => {
