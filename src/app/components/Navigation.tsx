@@ -3,8 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navigation.module.css';
+import { useState } from 'react';
 
 export default function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
@@ -29,36 +32,31 @@ export default function Navigation() {
               <Image src="/logo.svg" alt="Re:nue Logo" width={200} height={56} priority />
             </Link>
             
-            <div className="navbar-center">
-              <div className="hidden md:flex items-center space-x-8">
-                <Link href="/about" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
-                  Thrift with us
-                </Link>
-                <Link href="/store" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
-                  Donate
-                </Link>
-                <Link href="/donate" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
-                  Impact
-                </Link>
-                <Link href="/donate" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
-                  About us
-                </Link>
-                <Link 
-                  href="/get-involved" 
-                >
-                  Get Involved
-                </Link>
-              </div>
+            <div className="navbar-center hidden md:flex items-center space-x-8">
+              <Link href="/about" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Thrift with us
+              </Link>
+              <Link href="/store" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Donate
+              </Link>
+              <Link href="/donate" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Impact
+              </Link>
+              <Link href="/donate" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                About us
+              </Link>
+              <Link href="/get-involved" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Get Involved
+              </Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/contact" 
-                className="btn btn-primary rounded-full px-8">
+              <Link href="/contact" className="btn btn-primary rounded-full px-8">
                 Contact
               </Link>
             </div>
 
-            <button className="md:hidden p-2" aria-label="Menu">
+            <button className="md:hidden p-2" aria-label="Menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -76,6 +74,30 @@ export default function Navigation() {
             </button>
           </div>
         </div>
+        {isMenuOpen && (
+          <div className="md:hidden bg-white shadow-lg">
+            <div className="flex flex-col items-center space-y-4 py-4">
+              <Link href="/about" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Thrift with us
+              </Link>
+              <Link href="/store" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Donate
+              </Link>
+              <Link href="/donate" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Impact
+              </Link>
+              <Link href="/donate" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                About us
+              </Link>
+              <Link href="/get-involved" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
+                Get Involved
+              </Link>
+              <Link href="/contact" className="btn btn-primary rounded-full px-8">
+                Contact
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </>
   );

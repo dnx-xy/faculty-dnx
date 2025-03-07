@@ -1,8 +1,3 @@
-It looks like you want to update your `README.md` file by adding yourself as the author with your GitHub link. Here's the updated version:
-
----
-
-```md
 # Next.js Project
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
