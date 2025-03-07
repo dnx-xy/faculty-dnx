@@ -166,7 +166,7 @@ export default function Home() {
             </div>
             <div className="stats-card reveal reveal-zoom reveal-delay-400">
               <Image src="/icons/donation.svg" alt="Donation Icon" width={48} height={48} className="mb-4 text-primary" />
-              <p className="text-4xl font-bold text-primary mb-2">Donation Centres</p>
+              <p className="text-4xl font-bold text-primary text-center mb-2">Donation Centres</p>
               <h3 className="text-gray-600">{CountUp(15, 2000)}</h3>
             </div>
             <div className="stats-card reveal reveal-zoom reveal-delay-600">
