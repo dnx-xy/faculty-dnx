@@ -384,4 +384,7 @@ a:hover {
   .hero-content {
     border-radius: 0;
   }
+  .first-section .stats-card {
+    box-shadow: none;
+  }
 }

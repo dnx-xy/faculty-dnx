@@ -10,7 +10,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="bg-black text-white">
           <div className="container mx-auto px-6">
             <div className={styles.marquee}>
@@ -75,7 +75,7 @@ export default function Navigation() {
           </div>
         </div>
         {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-lg">
+          <div className="md:hidden bg-white">
             <div className="flex flex-col items-center space-y-4 py-4">
               <Link href="/about" className="text-base font-medium text-gray-600 hover:text-primary transition-colors">
                 Thrift with us

@@ -300,8 +300,8 @@ export default function Home() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Phone number</label>
-                  <div className="flex mt-1">
-                    <select className="w-20 mr-2 px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                  <div className="flex flex-col sm:flex-row mt-1">
+                    <select className="w-full sm:w-20 mb-2 sm:mb-0 sm:mr-2 px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
                       <option>+65</option>
                     </select>
                     <input
