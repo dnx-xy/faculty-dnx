@@ -1,7 +1,3 @@
-It seems like you're looking to make the `README.md` even more polished with icons or decorative elements for a more visually appealing structure. You can use icons for each section and add a bit of flair to make the document stand out, especially when showcasing your project. Below is an enhanced version with added emoji icons and some other decorative elements:
-
----
-
 # Assignment Test: Faculty Senior Frontend Engineer
 
 ![Logo](https://media.licdn.com/dms/image/v2/C560BAQFzG7R53ZHQ8Q/company-logo_200_200/company-logo_200_200/0/1647403554396?e=2147483647&v=beta&t=q1hQSgv4Vbcwe5iKbi_0nwrFIfeyp5Y1itkuDISNZW8)
