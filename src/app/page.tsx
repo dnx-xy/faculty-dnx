@@ -1,16 +1,10 @@
 'use client';
 
 import Image from "next/image";
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Animation variants
 type AnimationVariant = 'fade' | 'slide-up' | 'slide-left' | 'slide-right' | 'zoom' | 'none';
-
-interface RevealProps {
-  variant?: AnimationVariant;
-  delay?: number;
-  threshold?: number;
-}
 
 // Custom hook for reveal animations
 function useRevealAnimation() {
@@ -94,7 +88,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, [createObserver]); // Add createObserver to the dependency array
 
-  const countUp = (end: number, duration: number): number => {
+  const CountUp = (end: number, duration: number): number => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -114,7 +108,7 @@ export default function Home() {
       }, 10);
 
       return () => clearInterval(timer);
-    }, [isVisible, end, duration]);
+    }, [end, duration]);
 
     return count;
   };
@@ -152,7 +146,7 @@ export default function Home() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="container hero py-20 mt-20 reveal reveal-fade" ref={setSectionRef(0)}>
-        <div className="container text-center text-white max-w-4xl mx-auto rounded-lg overflow-hidden">
+        <div className="container text-center text-white max-w-4xl mx-auto rounded-lg overflow-hidden hero-content">
         <Image src="/inverse-logo.svg" alt="Logo" width={180} height={60} className="mx-auto mb-8" />
           <h1 className="text-6xl font-bold mb-6">Give. Thrift. Uplift.</h1><button className="btn rounded-full bg-white text-black hover:bg-opacity-90 px-8 py-3 font-medium">
             Donate your items
@@ -167,26 +161,26 @@ export default function Home() {
                  statsRef.current = el; 
                }}>
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 first-section">
             <div className="stats-card reveal reveal-zoom reveal-delay-200">
               <Image src="/icons/store.svg" alt="Store Icon" width={48} height={48} className="mb-4 text-primary" />
               <p className="text-4xl font-bold text-primary mb-2">Stores</p>
-              <h3 className="text-gray-600">{countUp(4, 2000)}</h3>
+              <h3 className="text-gray-600">{CountUp(4, 2000)}</h3>
             </div>
             <div className="stats-card reveal reveal-zoom reveal-delay-400">
               <Image src="/icons/donation.svg" alt="Donation Icon" width={48} height={48} className="mb-4 text-primary" />
               <p className="text-4xl font-bold text-primary mb-2">Donation Centres</p>
-              <h3 className="text-gray-600">{countUp(15, 2000)}</h3>
+              <h3 className="text-gray-600">{CountUp(15, 2000)}</h3>
             </div>
             <div className="stats-card reveal reveal-zoom reveal-delay-600">
               <Image src="/icons/participants.svg" alt="Participants Icon" width={48} height={48} className="mb-4 text-primary" />
               <p className="text-4xl font-bold text-primary mb-2">Partners</p>
-              <h3 className="text-gray-600">{countUp(9, 2000)}</h3>
+              <h3 className="text-gray-600">{CountUp(9, 2000)}</h3>
             </div>
             <div className="stats-card reveal reveal-zoom reveal-delay-800">
             <Image src="/icons/Community.svg" alt="Community Icon" width={48} height={48} className="mb-4 text-primary" />
               <p className="text-4xl font-bold text-primary mb-2">Community</p>
-              <h3 className="text-gray-600">{countUp(10000, 2000)}+</h3>
+              <h3 className="text-gray-600">{CountUp(10000, 2000)}+</h3>
             </div>
           </div>
           <div className="text-center mt-12 reveal reveal-fade reveal-delay-200">
@@ -199,20 +193,20 @@ export default function Home() {
       {/* Store Section */}
       <section className="section bg-primary text-white reveal reveal-slide-right" ref={setSectionRef(2)}>
         <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="max-w-xl reveal reveal-slide-up reveal-delay-200">
-              <h2 className="text-4xl font-bold mb-4">Re:Nue pillars</h2>
-              <h3 className="text-2xl font-semibold mb-4">Store</h3>
-              <p className="text-xl mb-12 opacity-90 leading-relaxed">Creating a fun and interesting thrifting experience, targeted at current customers and reaching out to younger, new generations who are interested in thrifting and repurposing.</p>
-              <button className="btn bg-white text-primary rounded-full hover:bg-opacity-90 text-lg px-10">Learn more</button>
-            </div>
-            <div className="relative h-[556px] rounded-lg overflow-hidden shadow-xl reveal reveal-slide-left reveal-delay-400">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:items-start md:gap-12">
+            <div className="relative h-[556px] rounded-lg overflow-hidden shadow-xl reveal reveal-slide-left reveal-delay-400 md:order-2">
               <Image
                 src="/contentRight.svg"
                 alt="Store front"
                 fill
                 className="object-cover"
               />
+            </div>
+            <div className="max-w-xl reveal reveal-slide-up reveal-delay-200 md:order-1">
+              <h2 className="text-4xl font-bold mb-4">Re:Nue pillars</h2>
+              <h3 className="text-2xl font-semibold mb-4">Store</h3>
+              <p className="text-xl mb-12 opacity-90 leading-relaxed">Creating a fun and interesting thrifting experience, targeted at current customers and reaching out to younger, new generations who are interested in thrifting and repurposing.</p>
+              <button className="btn bg-white text-primary rounded-full hover:bg-opacity-90 text-lg px-10">Learn more</button>
             </div>
           </div>
         </div>
