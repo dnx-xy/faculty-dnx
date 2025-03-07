@@ -74,7 +74,7 @@ export default function Home() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, []); // Ensure this useEffect runs only once
 
   useEffect(() => {
     const elements = sectionsRef.current;
@@ -87,26 +87,44 @@ export default function Home() {
 
   const CountUp = (end: number, duration: number): number => {
     const [count, setCount] = useState(0);
-
+    const [startCount, setStartCount] = useState(false);
+  
     useEffect(() => {
       if (!isVisible) return;
-
+  
       let start = 0;
       const increment = end / (duration / 10);
-
+      const startTime = Date.now();
+  
       const timer = setInterval(() => {
-        start += increment;
+        const elapsedTime = Date.now() - startTime;
+        start = Math.min(end, (elapsedTime / duration) * end);
+        setCount(Math.ceil(start));
+  
         if (start >= end) {
           clearInterval(timer);
-          setCount(end);
-        } else {
-          setCount(Math.ceil(start));
         }
       }, 10);
-
+  
       return () => clearInterval(timer);
-    }, [end, duration]);
-
+    }, [end, duration, isVisible, startCount]); // Add startCount to the dependency array
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const element = statsRef.current;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            setStartCount(true);
+            window.removeEventListener('scroll', handleScroll);
+          }
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
     return count;
   };
 
