@@ -3,9 +3,6 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-// Animation variants
-type AnimationVariant = 'fade' | 'slide-up' | 'slide-left' | 'slide-right' | 'zoom' | 'none';
-
 // Custom hook for reveal animations
 function useRevealAnimation() {
   const createObserver = (
