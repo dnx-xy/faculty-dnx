@@ -194,7 +194,7 @@ export default function Home() {
             <div className="stats-card reveal reveal-zoom reveal-delay-800">
             <Image src="/icons/Community.svg" alt="Community Icon" width={48} height={48} className="mb-4 text-primary" />
               <p className="text-4xl font-bold text-primary mb-2">Community</p>
-              <h3 className="text-gray-600">{CountUp(10000, 2000)}+</h3>
+              <h3 className="text-gray-600">{CountUp(920, 2000)}+</h3>
             </div>
           </div>
           <div className="text-center mt-12 reveal reveal-fade reveal-delay-200">
